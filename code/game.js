@@ -192,7 +192,7 @@ Level.prototype.animate = function(step, keys) {
 
 var maxStep = 0.05;
 
-var playerXSpeed = 6;
+var playerXSpeed = 4;
 
 Player.prototype.moveX = function(step, level, keys) {
   this.speed.x = 0;
@@ -209,11 +209,13 @@ Player.prototype.moveX = function(step, level, keys) {
   if(obstacle!="wall")
     this.pos = newPos;
 
+
+
 };
 
 var gravity = 13;
 var jumpSpeed = 12;
-var playerYSpeed = 8;
+var playerYSpeed = 4;
 
 Player.prototype.moveY = function(step, level, keys) {
   // Accelerate player downward (always)
@@ -221,6 +223,7 @@ Player.prototype.moveY = function(step, level, keys) {
   var motion = new Vector(0, this.speed.y * step);
   var newPos = this.pos.plus(motion);
   var obstacle = level.obstacleAt(newPos, this.size);
+
   if(obstacle == "lava"){
     this.pos= new Vector (5,15);
   }
